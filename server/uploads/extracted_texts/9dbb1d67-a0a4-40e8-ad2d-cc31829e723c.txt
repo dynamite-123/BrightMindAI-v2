@@ -1,0 +1,140 @@
+Business Requirements Document (BRD) 
+ 
+Project: Question Bank Management System (QBMS) 
+Department: Examination Department 
+ 
+ 
+1. Purpose 
+The Question Bank Management System (QBMS) aims to digitalize and streamline 
+the management of question papers for the college’s Examination Department. It will 
+securely store questions, organize them by branch, semester, subject, and unit, and 
+automate the generation of question papers following predefined blueprints that align 
+with Bloom’s Taxonomy and difficulty distribution requirements. 
+ 
+2. Objectives 
+• Centralize all questions in a structured database. 
+• Ensure each subject (5 units) has a minimum of 15 questions per unit. 
+• Enable automatic generation of final exam question papers with exactly 3 
+questions per unit. 
+• Enforce difficulty and Bloom’s taxonomy distribution per blueprint. 
+• Prevent question overlap within the same academic year while allowing reuse 
+in subsequent years. 
+• Track last usage of each question for analytics and audit. 
+• Support multiple branches, semesters, and subjects. 
+• Provide secure, role-based access to faculty and exam cell staff. 
+ 
+3. Stakeholders 
+• Examination Department (Primary Owner) 
+• Faculty Members (Question creators, reviewers) 
+• Exam Cell Staff (Generate and approve papers) 
+• IT/Admin Team (Maintain database, backups, access control) 
+• Students (Indirect beneficiaries through fair exam 
+ 
+ 
+ 
+4. Functional Requirements 
+4.1 Question Bank Management 
+• Store questions categorized by Branch, Semester, Subject, and Unit (1–5). 
+• Each question tagged with: Question Text, Unit, Marks, Difficulty (Easy, 
+Medium, Hard), Bloom’s Taxonomy Level (Remember, Understand, Apply, 
+Analyze, Evaluate, Create), Question Type, Year of creation, Last Used (date 
++ exam session ID).  
+4.2 Paper Generation 
+• Generate 15-question papers (3 per unit). 
+• Follow blueprint rules for each unit (e.g., Unit 1 → 1 Easy, 1 Medium, 1 Hard). 
+• Enforce global distribution ratio (e.g., 40% Easy, 40% Medium, 20% Hard). 
+• Support multiple versions of papers (Set A, Set B, etc.).  
+• Ensure no question repeats within the same academic year, but allow reuse 
+across years. 
+• If blueprint constraints cannot be met, system alerts staff and suggests 
+alternatives.  
+4.3 Search & Retrieval 
+• Search questions by subject, unit, difficulty, Bloom’s level, marks, year, and 
+usage history.  
+4.4 User Roles 
+• Admin: Manage users, configure system. 
+• Faculty: Add/review questions. 
+• Reviewer: Approve/reject questions.  
+• Exam Cell Staff: Generate and finalize papers.  
+4.5 Security 
+• Role-based access control, encrypted storage, audit logs. 
+ 
+5. Non-Functional Requirements 
+• Scalability: Handle questions across multiple branches and semesters. 
+• Performance: Generate papers within seconds. 
+• Usability: Faculty-friendly interface with minimal training. 
+• Security: Encryption, access restrictions, and audit trails. 
+• Backup & Recovery: Automated periodic database backup.  
+ 
+ 
+ 
+6. Scope & Constraints 
+In Scope: 
+• Question bank management with Bloom’s taxonomy and difficulty tagging. 
+• Randomized + blueprint-based paper generation. 
+• Tracking question usage (last_used). 
+• Export to PDF/Word. 
+• Role-based access.  
+Out of Scope: 
+• Student practice tests. 
+• Online exam delivery.  
+ 
+7. Assumptions 
+• Each subject has 5 units only. 
+• Each unit has a minimum of 15 questions in the database. 
+• Final exams always follow the 3-questions-per-unit pattern. 
+• Faculty will populate and maintain the database. 
+• Difficulty distribution is predefined (e.g., 40/40/20).  
+ 
+8. Risks 
+• Insufficient questions per unit/difficulty may restrict paper generation. 
+• Unauthorized access may cause leaks. 
+• Incorrect tagging (difficulty/Bloom’s level) may affect paper quality. 
+• Overuse of certain questions if faculty do not replenish the bank.  
+ 
+9. Success Criteria 
+• 100% adoption by exam department. 
+• Papers generated error-free and within 1 year. 
+ 
+ 
+ 
+ 
+ 
+ 
+Project Phases  
+ 
+Phase 1 – Excel Upload & Database Setup  
+Goal: Digitize and centralize questions.  
+ 
+Workflow:  
+1. Faculty send Excel sheets of questions via email.  
+2. Admin uploads Excel files into the system.  
+3. System parses the sheets according to the BRD structure (Branch, Semester, 
+Subject, Unit, Marks, Difficulty, Bloom’s Taxonomy, etc.).  
+4. Questions are validated, converted, and stored in the central database.  
+5. Paper generation uses the stored data with rules (3 per unit, 40/40/20 
+difficulty distribution, Bloom’s levels, etc.).  
+ 
+Deliverables: 
+• Database schema with tagging. 
+• Excel import pipeline with error handling. 
+• Question retrieval and randomization logic for paper generation. 
+• Admin dashboard for upload and verification. 
+ 
+ 
+Phase 2 – Faculty Portal & Direct Submission 
+Goal: Enable faculty to directly contribute and manage questions. 
+ 
+Workflow:  
+1. Teachers log in securely using their credentials. 
+2. Role-based access (faculty → add/review, reviewers → approve/reject, admin 
+→ manage users). 
+3. Faculty enter questions directly into a web interface (instead of Excel). 
+4. Built-in tagging UI for difficulty, Bloom’s taxonomy, unit, and metadata. 
+5. Question approval workflow ensures quality and consistency. 
+ 
+Deliverables: 
+• Faculty-friendly frontend (login, add/edit questions). 
+• Reviewer workflow for approvals/rejections. 
+• Search & retrieval functionality. 
+• Role-based security. 
