@@ -29,6 +29,7 @@ dependencies = [
 	"pydantic_core==2.33.2",
 	"Pygments==2.19.1",
 	"PyJWT==2.10.1",
+	"pymupdf>=1.26.4",
 	"python-dotenv==1.1.0",
 	"python-multipart==0.0.20",
 	"PyYAML==6.0.2",
@@ -43,5 +44,5 @@ dependencies = [
 	"typing_extensions==4.14.0",
 	"uvicorn==0.34.3",
 	"watchfiles==1.0.5",
-	"websockets==15.0.1"
+	"websockets==15.0.1",
 ]
